@@ -23,6 +23,15 @@ public class ReforgeProvider {
         return instance;
     }
 
+    /**
+     * Checks if any {@link Reforge} instance is provided.
+     *
+     * @return true if any {@link Reforge} instance is provided.
+     */
+    public static boolean hasAny() {
+        return instance != null;
+    }
+
     @ApiStatus.Internal
     public static void register(Reforge instance) {
         ReforgeProvider.instance = instance;

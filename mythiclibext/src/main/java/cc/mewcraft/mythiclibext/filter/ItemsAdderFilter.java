@@ -1,7 +1,6 @@
 package cc.mewcraft.mythiclibext.filter;
 
 import cc.mewcraft.mythiclibext.object.ItemsAdderStatus;
-import com.google.inject.Singleton;
 import dev.lone.itemsadder.api.CustomStack;
 import io.lumine.mythic.lib.api.crafting.uifilters.UIFilter;
 import io.lumine.mythic.lib.api.util.ItemFactory;
@@ -15,6 +14,8 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.inject.Singleton;
 
 @Singleton
 public class ItemsAdderFilter implements UIFilter {

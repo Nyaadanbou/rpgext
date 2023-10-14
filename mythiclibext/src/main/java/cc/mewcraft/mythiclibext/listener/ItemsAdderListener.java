@@ -1,17 +1,19 @@
 package cc.mewcraft.mythiclibext.listener;
 
-import cc.mewcraft.mewcore.listener.AutoCloseableListener;
 import cc.mewcraft.mythiclibext.MythicLibExt;
 import cc.mewcraft.mythiclibext.object.ItemsAdderStatus;
-import com.google.inject.Inject;
-import com.google.inject.Singleton;
 import dev.lone.itemsadder.api.Events.ItemsAdderLoadDataEvent;
 import org.bukkit.Bukkit;
 import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
+
+import javax.inject.Inject;
+import javax.inject.Singleton;
+
 import org.jetbrains.annotations.NotNull;
 
 @Singleton
-public class ItemsAdderListener implements AutoCloseableListener {
+public class ItemsAdderListener implements Listener {
 
     private final @NotNull MythicLibExt plugin;
 
@@ -24,7 +26,7 @@ public class ItemsAdderListener implements AutoCloseableListener {
     public void onItemsAdderLoad(ItemsAdderLoadDataEvent event) {
         ItemsAdderStatus.markAsComplete();
 
-        // In 98% of times of reloading ItemsAdder,
+        // In 99% of times of reloading ItemsAdder,
         // we don't add/remove items from ItemsAdder.
 
         // So we only auto reload MMOItems for the first event.

@@ -1,10 +1,12 @@
 package cc.mewcraft.mythicmobsext.feature.option.modifier;
 
 import cc.mewcraft.mythicmobsext.feature.option.PlayerAttackHandler;
-import com.google.inject.Inject;
-import com.google.inject.Singleton;
 import io.lumine.mythic.core.mobs.ActiveMob;
 import io.lumine.mythic.lib.api.event.PlayerAttackEvent;
+
+import javax.inject.Inject;
+import javax.inject.Singleton;
+
 import org.jetbrains.annotations.NotNull;
 
 /**

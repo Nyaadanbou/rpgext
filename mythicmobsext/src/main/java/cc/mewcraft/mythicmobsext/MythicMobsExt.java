@@ -1,8 +1,8 @@
 package cc.mewcraft.mythicmobsext;
 
-import cc.mewcraft.mewcore.message.Translations;
 import cc.mewcraft.mythicmobsext.listener.MythicMobListeners;
 import cc.mewcraft.mythicmobsext.listener.PlayerAttackListeners;
+import cc.mewcraft.spatula.message.Translations;
 import cloud.commandframework.Command;
 import com.google.inject.AbstractModule;
 import com.google.inject.Guice;
@@ -59,8 +59,8 @@ public class MythicMobsExt extends ExtendedJavaPlugin {
         }
 
         // Register listeners
-        registerListener(injector.getInstance(MythicMobListeners.class)).bindWith(this);
-        registerListener(injector.getInstance(PlayerAttackListeners.class)).bindWith(this);
+        registerListener(injector.getInstance(MythicMobListeners.class));
+        registerListener(injector.getInstance(PlayerAttackListeners.class));
     }
 
 }

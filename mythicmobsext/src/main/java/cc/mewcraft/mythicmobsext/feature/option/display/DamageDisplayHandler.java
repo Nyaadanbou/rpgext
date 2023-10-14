@@ -3,8 +3,6 @@ package cc.mewcraft.mythicmobsext.feature.option.display;
 import cc.mewcraft.mythicmobsext.MythicMobsExt;
 import cc.mewcraft.mythicmobsext.feature.option.PlayerAttackHandler;
 import cc.mewcraft.mythicmobsext.feature.option.crit.CriticalUtils;
-import com.google.inject.Inject;
-import com.google.inject.Singleton;
 import io.lumine.mythic.core.mobs.ActiveMob;
 import io.lumine.mythic.lib.api.event.PlayerAttackEvent;
 import io.lumine.mythic.lib.damage.DamageMetadata;
@@ -16,6 +14,10 @@ import net.kyori.adventure.text.format.NamedTextColor;
 import net.kyori.adventure.text.minimessage.tag.resolver.Placeholder;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
+
+import javax.inject.Inject;
+import javax.inject.Singleton;
+
 import org.jetbrains.annotations.NotNull;
 
 /**

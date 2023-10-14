@@ -1,10 +1,11 @@
 dependencies {
-    // server api
+    // server
     compileOnly(libs.server.paper)
 
-    // libs that present as other plugins
-    compileOnly(project(":mewcore"))
+    // helper
     compileOnly(libs.helper)
+
+    // standalone plugins
     compileOnly(libs.itemsadder)
     compileOnly(libs.mythiclib)
 }

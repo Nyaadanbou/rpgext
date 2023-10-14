@@ -1,22 +1,24 @@
 package cc.mewcraft.mythicmobsext.listener;
 
-import cc.mewcraft.mewcore.listener.AutoCloseableListener;
 import cc.mewcraft.mythicmobsext.feature.option.PlayerAttackHandler;
 import cc.mewcraft.mythicmobsext.feature.option.crit.CriticalHitHandler;
 import cc.mewcraft.mythicmobsext.feature.option.defense.DefenseHandler;
 import cc.mewcraft.mythicmobsext.feature.option.display.DamageDisplayHandler;
 import cc.mewcraft.mythicmobsext.feature.option.modifier.DamageModifierHandler;
-import com.google.inject.Inject;
 import io.lumine.mythic.bukkit.MythicBukkit;
 import io.lumine.mythic.lib.api.event.PlayerAttackEvent;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
+import org.bukkit.event.Listener;
+
 import org.jetbrains.annotations.NotNull;
 
 import java.util.LinkedList;
 import java.util.List;
 
-public class PlayerAttackListeners implements AutoCloseableListener {
+import javax.inject.Inject;
+
+public class PlayerAttackListeners implements Listener {
 
     private final List<PlayerAttackHandler> handlers;
 

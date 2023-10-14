@@ -1,7 +1,5 @@
 package cc.mewcraft.mythicmobsext.feature.option.crit;
 
-import com.google.inject.Inject;
-import com.google.inject.Singleton;
 import io.lumine.mythic.api.mobs.MythicMob;
 import io.lumine.mythic.bukkit.MythicBukkit;
 import io.lumine.mythic.core.mobs.MobExecutor;
@@ -9,6 +7,9 @@ import io.lumine.mythic.lib.UtilityMethods;
 
 import java.util.Map;
 import java.util.WeakHashMap;
+
+import javax.inject.Inject;
+import javax.inject.Singleton;
 
 @Singleton
 public class CriticalHitManager {

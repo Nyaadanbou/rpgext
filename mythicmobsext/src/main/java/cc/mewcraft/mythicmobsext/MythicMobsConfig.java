@@ -1,7 +1,8 @@
 package cc.mewcraft.mythicmobsext;
 
-import com.google.inject.Inject;
-import com.google.inject.Singleton;
+import javax.inject.Inject;
+import javax.inject.Singleton;
+
 import org.jetbrains.annotations.NotNull;
 
 @Singleton

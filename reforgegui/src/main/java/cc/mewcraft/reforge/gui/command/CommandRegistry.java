@@ -8,13 +8,14 @@ import cloud.commandframework.execution.CommandExecutionCoordinator;
 import cloud.commandframework.minecraft.extras.AudienceProvider;
 import cloud.commandframework.minecraft.extras.MinecraftExceptionHandler;
 import cloud.commandframework.paper.PaperCommandManager;
-import com.google.inject.Inject;
-import com.google.inject.Singleton;
 import org.bukkit.command.CommandSender;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Function;
+
+import javax.inject.Inject;
+import javax.inject.Singleton;
 
 @Singleton
 public class CommandRegistry extends PaperCommandManager<CommandSender> {

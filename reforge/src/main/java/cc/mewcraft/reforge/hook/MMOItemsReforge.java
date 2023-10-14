@@ -2,14 +2,15 @@ package cc.mewcraft.reforge.hook;
 
 import cc.mewcraft.reforge.ReforgePlugin;
 import cc.mewcraft.reforge.api.Reforge;
-import com.google.inject.Inject;
-import com.google.inject.Singleton;
 import net.Indyuce.mmoitems.api.ReforgeOptions;
 import net.Indyuce.mmoitems.api.util.MMOItemReforger;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Optional;
+
+import javax.inject.Inject;
+import javax.inject.Singleton;
 
 /**
  * Following is the order of options from the source code of MMOItems:

@@ -1,70 +1,52 @@
 package cc.mewcraft.reforge.gui;
 
-import cc.mewcraft.mewcore.message.Translations;
-import cc.mewcraft.mewcore.plugin.MeowJavaPlugin;
 import cc.mewcraft.reforge.gui.command.PluginCommands;
-import com.google.inject.AbstractModule;
 import com.google.inject.ConfigurationException;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 import com.google.inject.ProvisionException;
+import me.lucko.helper.plugin.ExtendedJavaPlugin;
 import net.kyori.adventure.text.minimessage.MiniMessage;
+import org.slf4j.Logger;
 import xyz.xenondevs.inventoryaccess.component.i18n.AdventureComponentLocalizer;
 import xyz.xenondevs.inventoryaccess.component.i18n.Languages;
-import xyz.xenondevs.invui.window.Window;
-import xyz.xenondevs.invui.window.WindowManager;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 
-public class ReforgePlugin extends MeowJavaPlugin {
-    private Injector injector;
-    private Translations translations;
-    private PluginCommands pluginCommands;
-
-    public Injector getInjector() {
-        return injector;
-    }
-
-    public Translations getLang() {
-        return translations;
-    }
-
+public class ReforgePlugin extends ExtendedJavaPlugin {
     @Override protected void enable() {
-        // Save default config files if there are none
-        // And then reload config files
         saveResourceRecursively("lang");
         saveResourceRecursively("item");
         saveDefaultConfig();
         reloadConfig();
 
         // Configure dependency injector
-        injector = Guice.createInjector(new AbstractModule() {
-            @Override protected void configure() {
-                bind(ReforgePlugin.class).toInstance(ReforgePlugin.this);
-                bind(Translations.class).toProvider(() -> new Translations(ReforgePlugin.this, "lang/message"));
-            }
-        });
-
-        // Initialize message translations
-        translations = injector.getInstance(Translations.class);
+        Injector injector = Guice.createInjector(new BasicBindings(this));
 
         // Initialize translations for InvUI
         try {
-            Languages.getInstance().loadLanguage("zh_cn", getDataFolder().toPath().resolve("lang").resolve("modding").resolve("zh_cn.json").toFile(), StandardCharsets.UTF_8);
+            Languages.getInstance().loadLanguage(
+                    "zh_cn",
+                    getDataFolder().toPath().resolve("lang").resolve("modding").resolve("zh_cn.json").toFile(),
+                    StandardCharsets.UTF_8
+            );
         } catch (IOException e) {
-            getSLF4JLogger().error("Failed to load language files", e);
+            logger().error("Failed to load language files", e);
         }
 
         // Add support of MiniMessage in InvUI localization config
         AdventureComponentLocalizer.getInstance().setComponentCreator(MiniMessage.miniMessage()::deserialize);
 
-        // Register commands
+        // Register commands (this is the entry point of this plugin)
         try {
-            pluginCommands = injector.getInstance(PluginCommands.class);
-            pluginCommands.registerCommands();
+            injector.getInstance(PluginCommands.class).registerCommands();
         } catch (ConfigurationException | ProvisionException e) {
-            getSLF4JLogger().error("Failed to register commands", e);
+            logger().error("Failed to register commands", e);
         }
+    }
+
+    private Logger logger() { // Convenience function to get slf4j logger
+        return getSLF4JLogger();
     }
 }

@@ -1,8 +1,9 @@
 package cc.mewcraft.reforge.command;
 
 import cc.mewcraft.reforge.ReforgePlugin;
-import com.google.inject.Inject;
-import com.google.inject.Singleton;
+
+import javax.inject.Inject;
+import javax.inject.Singleton;
 
 @Singleton
 public class PluginCommands {

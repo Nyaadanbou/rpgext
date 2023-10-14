@@ -1,8 +1,16 @@
 # Configuration of [how] an item is reforged.
 # Settings depend on specific reforge provider.
 
+reforge_provider: Mock
+
 # Following are reforge providers and their corresponding settings.
 reforge_options:
+
+  mock:
+    normal: "empty"
+
+  nova:
+    normal: "unimplemented"
 
   # Reforge provider: MMOItems
   #
@@ -27,10 +35,10 @@ reforge_options:
 
   # Reforge provider: ItemsAdder
   #
-  # Option specification: TODO
+  # Option specification:
+  # TODO
   #
   # List of options (key: data)
   itemsadder:
-    # Available options (key: data)
-    example1: "unimplemented"
-    example2: "unimplemented"
+    normal: "unimplemented"
+    bedrock: "unimplemented"
