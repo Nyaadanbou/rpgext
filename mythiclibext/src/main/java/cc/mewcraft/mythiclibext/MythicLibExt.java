@@ -17,7 +17,7 @@ public class MythicLibExt extends ExtendedJavaPlugin {
         });
 
         // Register listeners
-        registerListener(injector.getInstance(ItemsAdderListener.class));
+        registerTerminableListener(injector.getInstance(ItemsAdderListener.class)).bindWith(this);
 
         // Register ItemsAdder filter
         UIFilterManager.registerUIFilter(injector.getInstance(ItemsAdderFilter.class));

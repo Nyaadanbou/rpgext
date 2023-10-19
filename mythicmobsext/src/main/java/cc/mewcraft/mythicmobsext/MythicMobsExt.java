@@ -59,8 +59,8 @@ public class MythicMobsExt extends ExtendedJavaPlugin {
         }
 
         // Register listeners
-        registerListener(injector.getInstance(MythicMobListeners.class));
-        registerListener(injector.getInstance(PlayerAttackListeners.class));
+        registerTerminableListener(injector.getInstance(MythicMobListeners.class)).bindWith(this);
+        registerTerminableListener(injector.getInstance(PlayerAttackListeners.class)).bindWith(this);
     }
 
 }
