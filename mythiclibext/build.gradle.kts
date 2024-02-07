@@ -2,6 +2,7 @@ import net.minecrell.pluginyml.paper.PaperPluginDescription
 
 plugins {
     id("cc.mewcraft.deploy-conventions")
+    id("cc.mewcraft.guice-conventions")
     alias(libs.plugins.pluginyml.paper)
 }
 
@@ -24,7 +25,6 @@ dependencies {
 
     // internal
     implementation(project(":rpgext:common"))
-    implementation(project(":spatula:guice"))
 }
 
 paper {
